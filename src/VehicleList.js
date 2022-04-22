@@ -1,16 +1,8 @@
 import React from "react"
 import faker from '@faker-js/faker'
 import ListGroup from "react-bootstrap/ListGroup"
-import Vehicle from "./Vehicle"
 
 class VehicleList extends React.Component{
-    constructor(props){
-        super(props)
-        this.state = {
-          vehicles: []
-        }
-      }
-
 
     vehicle(){
         let vehicles = []
@@ -25,9 +17,9 @@ class VehicleList extends React.Component{
             })
         }
             
-        return this.props.vehicles.map((vehicle) => <ListGroup.Item 
-                                        action active={ this.props.onVehicleSelected.bind(vehicle) } onClick={this.props.onVehicleSelected.bind(vehicle)} >
-                                            <Vehicle vehicle="manufacturer" /> <Vehicle vehicle="model" />
+        return vehicles.map((vehicle) => <ListGroup.Item 
+                                        action key={vehicle.vin}>
+                                            {vehicle.manufacturer} {vehicle.model}
                                         </ListGroup.Item>
         )
     }
