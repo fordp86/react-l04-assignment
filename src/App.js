@@ -6,7 +6,10 @@ import Stack from 'react-bootstrap/Stack';
 class App extends React.Component {
   constructor(props){
     super(props)
-    this.state = { vehicles: [] }
+    this.state = { 
+      vehicles: [],
+      selected: true
+     }
   }
   render(){
     return (
