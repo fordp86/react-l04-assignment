@@ -6,12 +6,14 @@ import Vehicle from "./Vehicle"
 class VehicleList extends React.Component{
     constructor(props){
         super(props)
-        this.vehicles = []
-        this.generateVehicles = this.generateVehicles.bind(this)
+        this.state = {
+          vehicles: []
+        }
       }
 
-    generateVehicles(){
-        let vehicles = this.vehicles
+
+    vehicle(){
+        let vehicles = []
         for (let i = 0; i < 10; i++) { 
             vehicles.push({
                 manufacturer: faker.vehicle.manufacturer(),
@@ -22,13 +24,12 @@ class VehicleList extends React.Component{
                 color: faker.vehicle.color()
             })
         }
-      
-    }
-
-    vehicle() {
-        return this.props.vehicles.map((vehicle) => <ListGroup.Item >
-        <Vehicle vehicle={vehicle} />
-      </ListGroup.Item>)
+            
+        return this.props.vehicles.map((vehicle) => <ListGroup.Item 
+                                        action active={ this.props.onVehicleSelected.bind(vehicle) } onClick={this.props.onVehicleSelected.bind(vehicle)} >
+                                            <Vehicle vehicle="manufacturer" /> <Vehicle vehicle="model" />
+                                        </ListGroup.Item>
+        )
     }
 
     render(){

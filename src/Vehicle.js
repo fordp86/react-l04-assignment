@@ -5,7 +5,8 @@ import Button from "react-bootstrap/Button"
 class Vehicle extends React.Component{
 
     render(){
-        let { manufacturer, model, fuel, color, type, vin } = this.props.vehicle
+
+        let { manufacturer, model, type, fuel, vin, color } = this.props.vehicle
         
         if (this.props.vehicle.length > 0) {
         return(
