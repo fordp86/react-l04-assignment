@@ -1,18 +1,21 @@
 import React from 'react';
+import Vehicle from './Vehicle';
+import VehicleList from './VehicleList';
+import Stack from 'react-bootstrap/Stack';
 
-function App() {
-  return (
-    <div style={{ textAlign: 'center' }}>
-      <header>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = { vehicles: [] }
+  }
+  render(){
+    return (
+      <Stack gap={3} direction="horizontal" className="p-5 col-md-10 offset-md-1">
+        <VehicleList />
+        <Vehicle />
+      </Stack>
+    );
+  }
 }
 
 export default App;
